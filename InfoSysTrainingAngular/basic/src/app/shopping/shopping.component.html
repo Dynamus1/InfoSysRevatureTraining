@@ -1,0 +1,22 @@
+<p>shopping works!</p>
+
+<!-- String Interpolation and pipe -->
+<h1>{{message | uppercase}}</h1>
+
+<!-- Property Binding -->
+<input [placeholder]="place"> 
+
+<!-- Event Binding-->
+<!-- (click) looks for method in the component-->
+<input type="button" (click)="printName()"><br>
+<button type="button" (click)="toggleDisplayText()">Toggle Display Text</button>
+
+<!-- Structural Directives-->
+<p *ngIf="check">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sd, sunt.</p>
+
+<ul>
+    <li *ngFor="let item of shoppingList">
+        The name of the item is {{item.itemName}}
+        The cost of the item is {{item.cost | currency}}
+    </li>
+</ul>
