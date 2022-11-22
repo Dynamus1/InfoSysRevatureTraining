@@ -1,0 +1,9 @@
+<h1>Pokemon Search Box</h1>
+
+<input [(ngModel)]="poke_id" #id="ngModel" required minlength="1">
+
+<input type="button" (click)="searchPokemon()" value="search">
+
+<div *ngIf="foundPokemon">
+    <app-poke-card [pokeData]="pokeData"></app-poke-card>
+</div>
