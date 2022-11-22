@@ -19,12 +19,14 @@ import static com.revature.utils.ClientMessageUtils.*;
 
 @RestController
 @RequestMapping("/app")
+@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:3000"}, allowCredentials = "true")
 public class StockController {
 
     @Autowired
     private StockService stockService;
 
-    @GetMapping(value = "/stock", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    //@GetMapping(value = "/stock", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(value = "/stock")
     public @ResponseBody Stock getStockById(@RequestParam int id){
         return stockService.getStockById(id);
     }
