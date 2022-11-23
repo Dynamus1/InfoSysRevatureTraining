@@ -25,8 +25,8 @@ public class StockController {
     @Autowired
     private StockService stockService;
 
-    //@GetMapping(value = "/stock", consumes = {MediaType.APPLICATION_JSON_VALUE})
-    @GetMapping(value = "/stock")
+    @GetMapping(value = "/stock", consumes = {MediaType.APPLICATION_JSON_VALUE})
+    //@GetMapping(value = "/stock")
     public @ResponseBody Stock getStockById(@RequestParam int id){
         return stockService.getStockById(id);
     }

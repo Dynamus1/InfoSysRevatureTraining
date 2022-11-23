@@ -1,0 +1,11 @@
+<h1>Stocks Homepage</h1>
+
+
+<li *ngFor="let stock of allStocks">
+    Stock name : {{stock.companyName}}<br>
+    {{stock.companyName}} price : {{stock.stockPrice | currency}}<br>
+    <button type="button" (click)="stockInfo(stock.companyId)">{{stock.companyTickerSymbol}}</button>
+    <br>
+    <br>
+    <br>
+</li>
