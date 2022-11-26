@@ -23,17 +23,18 @@ export class HomepageComponent implements OnInit {
       (data) => {
         this.allStocks = data;
       },
-      () => this.allStocksLength = this.allStocks.length,
-      () => console.log(this.allStocks.length)
+      // () => this.allStocksLength = this.allStocks.length,
+      // () => console.log(this.allStocks.length)
     );
   }
 
   stockInfo(id: number){
-    console.log("Selected id: "+id);
+    // console.log("Selected id: "+id);
     this.stockService.getStockById(id).subscribe(
       (data) => {
+        this.stockService.setSelectedStock(data);
         this.selectedStock = data;
-        console.log(this.selectedStock);
+        // console.log(this.selectedStock);
       },
     )
     this.router.navigate(['stock']);

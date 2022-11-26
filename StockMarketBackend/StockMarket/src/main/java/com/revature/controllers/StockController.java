@@ -36,6 +36,11 @@ public class StockController {
         return stockService.getAllStocks();
     }
 
+    @GetMapping("/stocksByMarketCap")
+    public @ResponseBody List<Stock> getAllByMarketCap(@RequestParam long marketCapitalization){
+        return stockService.getAllByMarketCap(marketCapitalization);
+    }
+
     @PostMapping("/createStock")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public @ResponseBody ClientMessage createStock(@RequestBody Stock stock){

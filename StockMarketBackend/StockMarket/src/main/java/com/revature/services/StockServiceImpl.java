@@ -47,6 +47,11 @@ public class StockServiceImpl implements StockService{
     }
 
     @Override
+    public List<Stock> getAllByMarketCap(long marketCapitalization){
+        return stockRepo.getAllByMarketCap(marketCapitalization);
+    }
+
+    @Override
     public int updateStockPriceById(Stock stock){
         return stockRepo.updateStockPriceById(stock.getStockPrice(), stock.getCompanyId());
     }

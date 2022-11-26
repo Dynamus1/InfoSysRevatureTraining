@@ -1,2 +1,23 @@
-<p>stock works</p>
+<h3 *ngIf="selectedStock == undefined">You have not selected a stock, pick one!</h3>
 
+<h3 *ngIf="selectedStock != undefined">You Selected {{selectedStock.companyName}}</h3>
+
+<div *ngIf="selectedStock != undefined">
+    Company name : {{selectedStock.companyName}}<br>
+    {{selectedStock.companyName}} price : {{selectedStock.stockPrice | currency}}<br>
+    {{selectedStock.companyName}} shares : {{selectedStock.shares}}<br>
+    {{selectedStock.companyName}} market capitalization : {{selectedStock.marketCapitalization | currency}}<br>
+    <button type="button" (click)="purchaseSharesActivate()">Would you like to purchase shares of this stock?</button>
+</div>
+<br>
+<br>
+<div *ngIf="purchaseShares == true">
+    purchaseShares is true
+</div>
+
+<div *ngIf="allStocksByMarketCap != undefined">
+    <li *ngFor="let stock of allStocksByMarketCap">
+        Company name : {{stock.companyName}}<br>
+        {{stock.companyName}} price : {{stock.stockPrice | currency}}<br>
+    </li>
+</div>

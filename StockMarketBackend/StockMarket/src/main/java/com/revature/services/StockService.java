@@ -12,6 +12,8 @@ public interface StockService {
 
     List<Stock> getAllStocks();
 
+    List<Stock> getAllByMarketCap(long marketCapitalization);
+
     int updateStockPriceById(Stock stock);
 
     int updateMarketCapitalizationById(Stock stock);

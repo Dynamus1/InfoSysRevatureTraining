@@ -28,6 +28,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 @Transactional
 public interface StockRepo extends JpaRepository<Stock, Integer> {
@@ -39,6 +41,9 @@ public interface StockRepo extends JpaRepository<Stock, Integer> {
     @Modifying
     @Query(value = "UPDATE stocks SET market_capitalization=?1 WHERE company_id=?2", nativeQuery = true)
     public int updateMarketCapitalizationById(long marketCapitalization, int companyId);
+
+    @Query(value = "SELECT * FROM stocks WHERE market_capitalization >= ?1", nativeQuery = true)
+    public List<Stock> getAllByMarketCap(long marketCapitalization);
 }
 
 //    @Id
