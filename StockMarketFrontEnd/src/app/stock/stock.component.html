@@ -11,9 +11,20 @@
 </div>
 <br>
 <br>
-<div *ngIf="purchaseShares == true">
-    purchaseShares is true
-</div>
+<form [formGroup]="stockPurchaseForm">
+    <div *ngIf="purchaseShares == true && selectedStock != undefined" class="form-group">
+        <label>How many shares would you like to purchase?</label><br>
+        <label>Minimum shares to purchase: 1</label><br>
+        <label>Maximum shares available for purchase: {{selectedStock.shares}}</label><br>
+        <input type="number" formControlName="numberOfSharesPurchased" class="form-control"><br>
+    </div>
+    <div *ngIf="purchaseShares == true && selectedStock != undefined" class="form-group">
+        <label>At what price would you like to purchase these shares?</label><br>
+        <label>Minimum price to purchase: $1.00</label><br>
+        <input type="number" formControlName="priceOfSharesPurchased" class="form-control"><br>
+        <button (click)="updateMarketCapAndStockPrice()">Confirm purchase of shares</button>
+    </div>
+</form>
 
 <div *ngIf="allStocksByMarketCap != undefined">
     <li *ngFor="let stock of allStocksByMarketCap">

@@ -58,4 +58,20 @@ export class StockService {
   public getAllStocksByMarketCapApiCall(marketCapitalization: number): Observable<Stock[]> {
     return this.http.get<Stock[]>(this.apiURL + '/stocksByMarketCap?marketCapitalization=' + marketCapitalization);
   }
+
+  public updateStockPrice(companyId: number, companyName: string, companyTickerSymbol: string, 
+    stockPrice:number, shares: number, marketCapitalization: number): Observable<Stock> {
+      const payload = {companyId: companyId, companyName: companyName, companyTickerSymbol: companyTickerSymbol,
+      stockPrice: stockPrice, shares: shares, marketCapitalization: marketCapitalization};
+      console.log(payload);
+      return this.http.put<Stock>(this.apiURL + '/updateStockPrice', payload, {headers: environment.headers});
+  }
+
+  public updateStockMarketCap(companyId: number, companyName: string, companyTickerSymbol: string, 
+    stockPrice:number, shares: number, marketCapitalization: number): Observable<Stock> {
+      const payload = {companyId: companyId, companyName: companyName, companyTickerSymbol: companyTickerSymbol,
+      stockPrice: stockPrice, shares: shares, marketCapitalization: marketCapitalization};
+      console.log(payload);
+      return this.http.put<Stock>(this.apiURL + '/updateStockMarketCapitalization', payload, {headers: environment.headers});
+  }
 }

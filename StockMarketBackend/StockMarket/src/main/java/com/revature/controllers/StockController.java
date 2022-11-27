@@ -49,6 +49,12 @@ public class StockController {
 
     @PutMapping("/updateStockPrice")
     public @ResponseBody ClientMessage updateStockPrice(@RequestBody Stock stock){
+        System.out.println("Company id in payload: "+stock.getCompanyId());
+        System.out.println("Company name in payload: "+stock.getCompanyName());
+        System.out.println("Company ticker symbol in payload: "+stock.getCompanyTickerSymbol());
+        System.out.println("Company stock price in payload: "+stock.getStockPrice());
+        System.out.println("Company shares in payload: "+stock.getShares());
+        System.out.println("Company market cap in payload: "+stock.getMarketCapitalization());
         return stockService.updateStockPriceById(stock) > 0 ? UPDATE_SUCCESSFUL:UPDATE_FAILED;
     }
 
